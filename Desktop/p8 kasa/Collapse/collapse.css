@@ -1,0 +1,46 @@
+.ContCollapse {
+  font-size: 24px;
+  width: 80%;
+  margin: 40px auto;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.TittleCont {
+  background-color: #ff6060;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.TittleCollapse {
+  font-weight: 500;
+  margin: 0;
+  color: white;
+  font-size: 18px;
+}
+
+.TextCollapse {
+  background-color: #f6f6f6;
+  font-weight: 300;
+  padding: 30px 20px;
+  margin: 0;
+  color: #ff6060;
+  font-size: 17px;
+}
+.TextCollapse p {
+  padding: 0 0 5px 0;
+}
+
+.CollapseHomeTwo {
+  display: flex;
+  gap: 35px;
+}
+@media (max-width: 1001px) {
+  .CollapseHomeTwo {
+    display: block;
+  }
+}/*# sourceMappingURL=Collapse.css.map */

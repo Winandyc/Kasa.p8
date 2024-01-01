@@ -1,49 +1,43 @@
 // IMPORTS
-import { useState } from 'react'
-import './Collapse.css'
+import React, { useState } from 'react'
 
 // ASSETS
-import ArrowDown from '../../assets/arrow-down.png'
-import ArrowUp from '../../assets/arrow-up.png'
+import chevronUp from "../src/assets/chevron-up.png"
+import chevronDown from "../src/assets/chevron-down.png"
+
+// STYLES
+import "./collapse.css"
 
 
-function Collapse({ data }) {
-    const [openIndexes, setOpenIndexes] = useState([])
 
-    const toggleCollapse = (index) => {
-        const currentIndex = openIndexes.indexOf(index)
-        const newOpenIndexes = [...openIndexes]
+function Collapse({ title, content }) {
+    // défini le collapse par défaut comme fermé
+    const [contentVisible, setContentVisible] = useState(false)
 
-        if (currentIndex === -1) {
-            newOpenIndexes.push(index)
-        } else {
-            newOpenIndexes.splice(currentIndex, 1)
-        }
-
-        setOpenIndexes(newOpenIndexes)
+    // à chaque clic sur le collapse, ca inverse la valeur pour le ouvert/fermé
+    const affContent = () => {
+        setContentVisible(!contentVisible) // inverse la valeur actuelle
     }
 
-    const numCollapses = data.length
-    const containerClass = numCollapses === 2 ? 'CollapseHomeTwo' : 'CollapseHome'
+    // défini les classes selon si c'est visible ou caché, idem pour le chevron
+    const collapseContent = (contentVisible ? "visible" : "hidden") + " collapse"
+    const collapseChevron = (contentVisible ? chevronUp : chevronDown)
 
     return (
-        <div className={containerClass}>
-            {data.map((collapse, index) => (
-                <div className="ContCollapse" key={index}>
-                    <div className="TittleCont" onClick={() => toggleCollapse(index)}>
-                        <h3 className='TittleCollapse'>{collapse.title}</h3>
-                        {openIndexes.includes(index) ? (
-                            <img src={ArrowUp} alt="Arrow" />
-                        ) : (
-                            <img src={ArrowDown} alt="Arrow" />
-                        )}
-                    </div>
+        <div className='collapse'>
 
-                    {openIndexes.includes(index) && (
-                        <div className="TextCollapse">{collapse.text}</div>
-                    )}
+            {/* affiche le titre et le chevron */}
+            <div className='collapse__header' onClick={affContent}>
+                <span>{title}</span>
+                <div className="chevronValue">
+                    <img src={collapseChevron} alt="" />
                 </div>
-            ))}
+            </div>
+
+            {/* affiche le contenu */}
+            <div className={collapseContent}>
+                <ul>{content}</ul>
+            </div>
         </div>
     )
 }

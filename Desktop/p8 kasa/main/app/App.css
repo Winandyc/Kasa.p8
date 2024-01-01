@@ -1,0 +1,15 @@
+:root {
+    --red: #FF6060;
+    --white: #ffffff;
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+body {
+    background: #ffffff;
+    margin: 0 80px;
+    padding: 0;
+}
