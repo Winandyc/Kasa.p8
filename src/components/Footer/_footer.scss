@@ -1,0 +1,11 @@
+footer {
+    background-color: black;
+    color: $secondarycolor;
+    @include flexColumn;
+    height: 209px;
+    gap: 30px;
+    font-size: 24px;
+    @media all and (max-width: 768px){
+        font-size: 12px;
+    }
+}

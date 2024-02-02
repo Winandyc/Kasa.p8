@@ -1,0 +1,213 @@
+.containerInfosCollapse {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+    margin: 0px 100px 40px 100px;
+    @media all and (max-width: 768px){
+        margin: 0px 20px 40px 20px;
+        gap: 10px;
+    }
+}
+
+.containerInfos {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    margin-bottom: 20px;
+    @media all and (max-width: 768px){
+        flex-direction: column;
+        gap: 20px;
+    }
+    & .containerTitleLocationTag {
+        gap: 20px;
+        & h2 {
+            color: $primarycolor;
+            font-size: 36px;
+            margin-bottom: 5px;
+            font-weight: 500;
+            @media all and (max-width: 768px){
+                font-size: 18px;
+            }
+        }
+        & p {
+            color: $primarycolor;
+            font-size: 18px;
+            @media all and (max-width: 768px){
+                font-size: 14px;
+            }
+        }
+        & ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+            @media all and (max-width: 768px){
+                gap: 8px;
+            }
+            & li {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: $primarycolor;
+                color: $secondarycolor;
+                min-width: 115px;
+                height: 25px;
+                border-radius: 10px;
+                font-size: 14px;
+                padding: 10px;
+                @media all and (max-width: 768px){
+                    min-width: 84px;
+                    height: 18px;
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+}
+
+.containerRatingHost {
+    display: flex;
+    flex-direction: column;
+    @media all and (max-width: 768px){
+        flex-direction: row-reverse;
+        justify-content: space-between;
+
+    }
+    & .host {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 167px;
+        height: 64px;
+        gap: 10px;
+        @media all and (max-width: 768px){
+            height: 33px;
+            max-width: 30%;
+        }
+        & img {
+            border-radius: 100px;
+            width: 64px;
+            height: 64px;
+            @media all and (max-width: 768px){
+                width: 32px;
+                height: 32px;
+            }
+        }
+        & p {
+            color: $primarycolor;
+            text-align: right;
+            font-size: 18px;
+            @media all and (max-width: 768px){
+                font-size: 12px;
+            }
+        }
+} 
+}
+
+.stars {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+    & .star {
+        color: #E3E3E3;
+        font-size: 20px;
+        margin-right: 4px;
+        @media all and (max-width: 768px){
+            font-size: 14px;
+        }
+    }
+    & .star.filled {
+        color: $primarycolor;
+    }
+}
+
+.containerCollapseLogement {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    @media all and (max-width: 768px){
+        flex-direction: column;
+        gap: 20px;
+    }
+    & ul {
+        display: flex;
+        flex-direction: column;
+        width: 45%;
+        @media all and (max-width: 768px){
+            width: 100%;
+        }
+    }
+    & .title{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        background-color: $primarycolor;
+        border-radius: 5px;
+        padding: 5px 8px 5px 8px;
+    }
+    & h2 {
+        color: white;
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 26px;
+        @media all and (max-width: 768px){
+            font-size: 13px;
+            line-height: 19px;
+        }
+    }
+    & .hiddenInfos {
+        background-color: rgb(227, 224, 224);
+        border-radius: 5px;
+        color: $primarycolor;
+        font-size: 18px;
+        padding: 15px 15px;
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        @media all and (max-width: 768px){
+            font-size: 12px;
+        }
+        & p {
+            transform: translateY(-20px);
+        }
+    }
+    & .showInfos {
+        background-color: rgb(227, 224, 224);
+        border-radius: 5px;
+        color: $primarycolor;
+        font-size: 18px;
+        padding: 15px 15px;
+        opacity: 1;
+        transition: 0.5s;
+        gap: 10px;
+        width: 100%;
+        @media all and (max-width: 768px){
+            font-size: 12px;
+            gap: 5px;
+        }
+        & li {
+            transform: translateY(0px);
+            transition: 0.5s;
+        }
+        & p {
+            transform: translateY(0px);
+            transition: 0.5s;
+        }
+    }
+    & .arrowUp {
+        transition: all 0.5s ease-in-out;
+        @media all and (max-width: 768px){
+            width: 20px;
+        }
+    }
+    & .arrowDown {
+        transform: rotate(180deg);
+        transition: all 0.5s ease-in-out;
+        animation-direction: alternate;
+        @media all and (max-width: 768px){
+            width: 20px;
+        }
+    }
+}
+

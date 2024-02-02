@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+$font: 'Montserrat', sans-serif;
+
+$primarycolor: #FF6060;
+$secondarycolor: #FFF;
+
+@mixin flexRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+body {
+    font-family: $font;
+    height: auto;
+}

@@ -1,0 +1,72 @@
+.carrouselContainer {
+    position: relative;
+    max-width: 100%;
+    height: 415px;
+    overflow: hidden;
+    margin: 0px 100px 50px 100px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    @media all and (max-width: 768px){
+        margin: 0px 20px 15px 20px;
+        height: 255px;
+    }
+    & .carrouselImageContainer {
+        max-width: 100%;
+        margin: auto;
+    }
+    & .carrouselSlide {
+        height: 100%;
+        width: 100%;
+    }
+    & .carrouselCounter {
+        position: absolute;
+        color: $secondarycolor;
+        font-size: 18px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 20px;
+        @media all and (max-width: 768px){
+            display: none;
+        }
+    }
+    & .carrouselButton {
+        position: absolute;
+        top: 40%;
+        width: 96px;
+        height: 120px;
+        border: none;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: center;
+        @media all and (max-width: 768px){
+            width: 50px;
+            height: 50px;
+        }
+    }
+    & .carrouselPrev {
+        background-image: url('../../assets/Images/arrowLeft.png');
+        left: 20px;
+        @media all and (max-width: 768px){
+            background-size: 22px;
+            left: 5px;
+        }
+    }
+    & .carrouselNext {
+        background-image: url('../../assets/Images/arrowRight.png');
+        right: 10px;
+        @media all and (max-width: 768px){
+            background-size: 22px;
+            right: 5px;
+        }
+    }
+    & .carrouselImage {
+        object-fit: cover;
+        width: 100%;
+        height: 415px;
+        margin: auto;
+        @media all and (max-width: 768px){
+            height: 255px;
+        }
+    }
+}
