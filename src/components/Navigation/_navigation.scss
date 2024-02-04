@@ -15,7 +15,7 @@
             max-width: 136px;
 
             li{
-            color: $primarycolor;
+            color: $thirdcolor;
             font-size: 24px;
             @media all and (max-width: 768px){
                 font-size: 10px;
@@ -26,5 +26,5 @@
 };
 
 .navActive {
-    text-decoration: underline solid $primarycolor;
+    text-decoration: underline solid $thirdcolor;
 }

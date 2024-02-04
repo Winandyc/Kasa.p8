@@ -41,7 +41,7 @@ const InfosLogement = ({ data }) => {
 
     const [selectedSections, setSelectedSections] = useState({
         description: [],
-        equipement: [],
+        equipements: [],
     });
 
     const toggle = (section, index) => {
@@ -123,19 +123,19 @@ const InfosLogement = ({ data }) => {
                                 </li>
                             ))}
                         </ul>
-                        <ul className="equipement">
+                        <ul className="equipements">
                             {filteredLogements.map((logement, index) => (
                                 <li key={`${logement.id}_equipment_${index}`}>
                                     <div className="title">
-                                        <h2>Equipement</h2>
+                                        <h2>Equipements</h2>
                                         <img
                                             src="/vectorBas.svg"
                                             alt="Flèche vers le bas"
                                             onClick={() =>
-                                                toggle('equipement', index)
+                                                toggle('equipements', index)
                                             }
                                             className={
-                                                selectedSections.equipement.includes(
+                                                selectedSections.equipements.includes(
                                                     index
                                                 )
                                                     ? 'arrowDown'
@@ -145,7 +145,7 @@ const InfosLogement = ({ data }) => {
                                     </div>
                                     <ul
                                         className={
-                                            selectedSections.equipement.includes(
+                                            selectedSections.equipements.includes(
                                                 index
                                             )
                                                 ? 'showInfos'
@@ -155,7 +155,7 @@ const InfosLogement = ({ data }) => {
                                         {logement.equipments.map(
                                             (equipment, equipIndex) => (
                                                 <li
-                                                    key={`${logement.id}_equipment_${equipIndex}`}
+                                                    key={`${logement.id}_equipments_${equipIndex}`}
                                                 >
                                                     {equipment}
                                                 </li>
