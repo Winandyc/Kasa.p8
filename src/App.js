@@ -18,10 +18,27 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
         <Route path="/Accommodation/:id" element={<Accommodation />} />
-        <Route path="*" element={<Error404 />} />
+        <Route path="*" element={<Error404 />} />   {/*   * = n'importe quelle URL, "attrape tout"   */}
       </Routes>
     </BrowserRouter>
   );
 };
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+// J'ai utilisé la bibliothèque react-router-dom pour initialiser les routes de mon application. Dans mon composant App, j'ai
+// enveloppé l'ensemble de mes routes avec le composant BrowserRouter, qui fournit un contexte de navigation à mes routes. Ensuite,
+// j'ai utilisé le composant Routes pour définir mes routes individuelles. Pour chaque route, j'ai spécifié un chemin et le composant
+// à afficher lorsque ce chemin est atteint.

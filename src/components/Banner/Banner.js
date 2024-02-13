@@ -10,7 +10,7 @@ import React from 'react';
  * @returns {JSX.Element} Le composant Banner rendu.
  */
 
-const Banner = ({ image, text }) => {
+const Banner = ({ image, text }) => { // Les paramètres du composant prennent ici la forme de props (= propriétés) // Voir lignes 3 à 11.
     return (
         <div className="banner">
             <p>{text}</p>

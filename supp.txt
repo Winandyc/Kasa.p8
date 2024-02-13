@@ -1,6 +1,0 @@
--c'est quoi axios ? Revoir les useEffect (Logements, Collapse) - useParms (Carroussel) - d'où vient le "collapse.json" ?
--revoir les props et comment on les utilise
--liens react ? Map ou autre ? Revoir
--composants fonctionnels / composants classes = quelle différence ?
--revoir ce qu'est react router/react router dom
--revoir le sens de rotation animations des flèches dans la gallery

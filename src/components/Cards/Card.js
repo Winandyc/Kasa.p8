@@ -13,7 +13,7 @@ import { NavLink } from 'react-router-dom';
  * @returns {JSX.Element} Le composant Card rendu.
  */
 
-const Card = ({ logement }) => {
+const Card = ({ logement }) => { // Le paramètre du composant prend ici la forme d'une prop (= propriété) // Voir lignes 4 à 14.
     return (
         <NavLink className="navLogement" to={`/Accommodation/${logement.id}`}>
             <li className="card">
@@ -27,3 +27,20 @@ const Card = ({ logement }) => {
 };
 
 export default Card;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Ligne 18 : <NavLink className="navLogement" to={/Accommodation/${logement.id}}>: Utilise le composant NavLink de React Router pour
+// créer un lien vers la page de détails de l'hébergement correspondant à l'ID du logement. L'ID du logement est extrait de la propriété
+// logement passée au composant.
