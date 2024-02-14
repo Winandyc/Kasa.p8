@@ -15,13 +15,13 @@ const Navigation = () => {
                     to="/"
                     className={(nav) => (nav.isActive ? 'navActive' : '')}
                 >
-                    <li>ACCUEIL</li>
+                    <li>Accueil</li>
                 </NavLink>
                 <NavLink
                     to="/About"
                     className={(nav) => (nav.isActive ? 'navActive' : '')}
                 >
-                    <li>A PROPOS</li>
+                    <li>A Propos</li>
                 </NavLink>
             </ul>
         </div>
