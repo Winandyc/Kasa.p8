@@ -31,7 +31,7 @@
             }
         }
         & p {
-            color: $primarycolor;
+            color: $thirdcolor;
             font-size: 18px;
             @media all and (max-width: 768px){
                 font-size: 14px;
@@ -173,26 +173,22 @@
         }
     }
     & .showInfos {
-        background-color: rgb(227, 224, 224);
+        background: rgba(246, 246, 246, 0.45);
         border-radius: 5px;
-        color: $primarycolor;
+        color: $thirdcolor;
         font-size: 18px;
         padding: 15px 15px;
-        opacity: 1;
-        transition: 0.5s;
-        gap: 10px;
         width: 100%;
+
         @media all and (max-width: 768px){
             font-size: 12px;
             gap: 5px;
         }
         & li {
             transform: translateY(0px);
-            transition: 0.5s;
         }
         & p {
             transform: translateY(0px);
-            transition: 0.5s;
         }
     }
     & .arrowUp {

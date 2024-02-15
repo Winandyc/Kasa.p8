@@ -34,8 +34,9 @@ const Carroussel = ({ data }) => {
     const totalSlides = filteredLogements[0].pictures.length;
     const showCounterButtons = totalSlides > 1;
 
-    const nextSlide = () => {
-        setCurrentSlide((prevSlide) => (prevSlide + 1) % totalSlides);
+    const nextSlide = () => { // boutton suivant : "setCurrentSlide" appelé
+        setCurrentSlide((prevSlide) => (prevSlide + 1) % totalSlides); // prevSlide : argument utilisé pour accéder la valeur précédente de
+        // CurrentSlide, afin de calculer la nouvelle valeur dans la fonction nextSlide.
     };
 
     const prevSlide = () => {
