@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ExpansionPanel from '../ExpansionPanel';
 
 /*
  * @brief : Composant InfosLogement qui affiche les détails d'un logement.
@@ -39,24 +40,6 @@ const InfosLogement = ({ data }) => {
         return stars;
     };
 
-    const [selectedSections, setSelectedSections] = useState({
-        description: [],
-        equipements: [],
-    });
-
-    const toggle = (section, index) => {
-        setSelectedSections((prevSelected) => {
-            const isSelected = prevSelected[section].includes(index);
-            const updatedSelected = {
-                ...prevSelected,
-                [section]: isSelected
-                    ? prevSelected[section].filter((item) => item !== index)
-                    : [...prevSelected[section], index],
-            };
-            return updatedSelected;
-        });
-    };
-
     return (
         <div>
             {filteredLogements.map((logement) => (
@@ -88,81 +71,30 @@ const InfosLogement = ({ data }) => {
                             </div>
                         </div>
                     </div>
+
+
+
                     <div className="containerCollapseLogement">
                         <ul className="description">
                             {filteredLogements.map((logement, index) => (
-                                <li key={`${logement.id}_description_${index}`}>
-                                    <div className="title">
-                                        <h2>Description</h2>
-                                        <img
-                                            src="/vectorBas.svg"
-                                            alt="Flèche vers le bas"
-                                            onClick={() =>
-                                                toggle('description', index)
-                                            }
-                                            className={
-                                                selectedSections.description.includes(
-                                                    index
-                                                )
-                                                    ? 'arrowDown'
-                                                    : 'arrowUp'
-                                            }
-                                        />
-                                    </div>
-                                    <div
-                                        className={
-                                            selectedSections.description.includes(
-                                                index
-                                            )
-                                                ? 'showInfos'
-                                                : 'hiddenInfos'
-                                        }
-                                    >
-                                        <p>{logement.description}</p>
-                                    </div>
-                                </li>
+                                <ExpansionPanel title="Description" key={`${logement.id}_description_${index}`}>
+                                    <p>{logement.description}</p>
+                                </ExpansionPanel>
                             ))}
                         </ul>
                         <ul className="equipements">
                             {filteredLogements.map((logement, index) => (
-                                <li key={`${logement.id}_equipment_${index}`}>
-                                    <div className="title">
-                                        <h2>Equipements</h2>
-                                        <img
-                                            src="/vectorBas.svg"
-                                            alt="Flèche vers le bas"
-                                            onClick={() =>
-                                                toggle('equipements', index)
-                                            }
-                                            className={
-                                                selectedSections.equipements.includes(
-                                                    index
-                                                )
-                                                    ? 'arrowDown'
-                                                    : 'arrowUp'
-                                            }
-                                        />
-                                    </div>
-                                    <ul
-                                        className={
-                                            selectedSections.equipements.includes(
-                                                index
-                                            )
-                                                ? 'showInfos'
-                                                : 'hiddenInfos'
-                                        }
-                                    >
+                                <ExpansionPanel title="Equipements" key={`${logement.id}_equipment_${index}`}>
+                                    <ul>
                                         {logement.equipments.map(
                                             (equipment, equipIndex) => (
-                                                <li
-                                                    key={`${logement.id}_equipments_${equipIndex}`}
-                                                >
+                                                <li key={`${logement.id}_equipments_${equipIndex}`}>
                                                     {equipment}
                                                 </li>
                                             )
                                         )}
                                     </ul>
-                                </li>
+                                </ExpansionPanel>
                             ))}
                         </ul>
                     </div>

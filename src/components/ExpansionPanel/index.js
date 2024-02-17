@@ -1,6 +1,4 @@
-import React from 'react'
-
-function ExpansionPanel({ title, text }) {
+function ExpansionPanel({ title, children }) {
     return (
         <li>
             <details> {/* balise qui sert pour les expansion panels */}
@@ -8,11 +6,11 @@ function ExpansionPanel({ title, text }) {
                     <h2>{title}</h2>
                     <img
                         src="/vectorBas.svg"
-                        alt="Flèche vers le bas"
+                        alt=""
                     />
                 </summary>
 
-                <p>{text}</p>
+                {children} {/* Permet d'insérer l'enfant placé entre les balises du composant. ex : <ExpansionPanel>enfant</ExpansionPanel> sans définir le type de contenu à l'intérieur */}
             </details>
         </li>
     )

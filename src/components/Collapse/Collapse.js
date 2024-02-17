@@ -25,7 +25,9 @@ const Collapse = () => {
         <div className="collapse">
             <ul>
                 {collapse.map(({aboutTitle, aboutText}, index) => (
-                    <ExpansionPanel title={aboutTitle} text={aboutText} key={index} />
+                    <ExpansionPanel title={aboutTitle} key={index}>
+                        <p>{aboutText}</p>
+                    </ExpansionPanel>
                 ))}
             </ul>
         </div>
