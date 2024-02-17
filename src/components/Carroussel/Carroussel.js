@@ -17,7 +17,7 @@ import { useParams } from 'react-router-dom';
  */
 
 const Carroussel = ({ data }) => {
-    const { id } = useParams(); // données récupérées à partir du hook "useParams" (et du paramètre data déstructuré de l'objet "props")
+    const { id } = useParams(); // données récupérées à partir du hook "useParams" (+ paramètre data déstructuré de l'objet "props")
 
     const [currentSlide, setCurrentSlide] = useState(0);
 
