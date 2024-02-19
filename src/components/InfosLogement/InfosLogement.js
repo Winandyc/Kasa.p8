@@ -1,37 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ExpansionPanel from '../ExpansionPanel';
 
-/*
- * @brief : Composant InfosLogement qui affiche les détails d'un logement.
- * @component
- * @param {object} props - Les propriétés du composant.
- * @param {Array} props.data - Les données du logement à afficher.
- * @returns {JSX.Element} Le composant InfosLogement rendu.
- *
- * @brief : Génère des étoiles en fonction de la note du logement.
- * @function generateStars
- * @param {number} rating - La note du logement.
- * @returns {JSX.Element[]} Tableau d'éléments JSX représentant les étoiles.
- *
- * @brief : Fonction pour basculer l'état de sélection d'une section.
- * @function toggle
- * @param {string} section - Le nom de la section à basculer.
- * @param {number} index - L'index de la section à basculer.
- * @returns {void}
- */
+const InfosLogement = ({ data }) => { // data représente les données qui seront utilisées pour afficher les informations sur le logement.
+    const { id } = useParams(); // Utilisation du hook useParams pour extraire la valeur de l'id de l'URL.
 
-const InfosLogement = ({ data }) => {
-    const { id } = useParams();
+    const filteredLogements = data.filter((logement) => logement.id === id); // Je filtre les données (data) de logements en fonction de l'id extrait
+    // de l'URL. Je ne garde que les logements dont l'id correspont à celui extrait de l'URL juste au-dessus, avec useParams.
 
-    const filteredLogements = data.filter((logement) => logement.id === id);
-
-    const generateStars = (rating) => {
+    const generateStars = (rating) => { // fonction qui génère des éléments <span> représentant les étoiles d'évaluation en fonction d'une note donnée.
         const stars = [];
-        for (let i = 1; i <= 5; i++) {
-            stars.push(
+        for (let i = 1; i <= 5; i++) { // boucle for qui itère de 1 à 5 (pour une note de 1 à 5 étoiles).
+            stars.push( // à chaque itération de ma boucle, un nouvel élément span est créé et ajouté au tableau stars.
                 <span key={i} className={`star ${i <= rating ? 'filled' : ''}`}>
                     <FontAwesomeIcon icon={faStar} />
                 </span>
@@ -42,7 +24,8 @@ const InfosLogement = ({ data }) => {
 
     return (
         <div>
-            {filteredLogements.map((logement) => (
+            {filteredLogements.map((logement) => ( // Utilisation de la méthode ".map()" sur le tableau "filteredLogements" pour parcourir chaque
+            // éléments du tableau et générer les données du logement filtré.
                 <div className="containerInfosCollapse" key={logement.id}>
                     <div className="containerInfos">
                         <div className="containerTitleLocationTag">
@@ -82,6 +65,7 @@ const InfosLogement = ({ data }) => {
                                 </ExpansionPanel>
                             ))}
                         </ul>
+
                         <ul className="equipements">
                             {filteredLogements.map((logement, index) => (
                                 <ExpansionPanel title="Equipements" key={`${logement.id}_equipment_${index}`}>

@@ -24,7 +24,7 @@ const Collapse = () => {
     return (
         <div className="collapse">
             <ul>
-                {collapse.map(({aboutTitle, aboutText}, index) => (
+                {collapse.map(({aboutTitle, aboutText}, index) => ( // index :  représente l'indice de l'élément actuel dans le tableau collapse.map.
                     <ExpansionPanel title={aboutTitle} key={index}>
                         <p>{aboutText}</p>
                     </ExpansionPanel>

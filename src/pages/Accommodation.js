@@ -18,25 +18,23 @@ const Accommodation = () => {
 
     const [isFound, setIsFound] = useState(true);
     const [data, setData] = useState([]); // useState : permet de déclarer une variable d'état, ici initialisée avec un tableau vide []
-// "setData" est une fonction qui permet de mettre à jour cette variable d'état (= changer l'état)
-    useEffect(() => {
-        // useEffect : permet d'effectuer des effets de bord. Ici, utilisé pour effectuer une requête HTTP GET à l'URL "/data.json" lors
-        // du premier rendu du composant (grâce au tableau de dépendances vide [] passé en second argument). Une fois que la réponse est
-        // reçue, la fonction passée à then est appelée, mettant à jour l'état data avec les données reçues du serveur.
+    // "setData" est une fonction qui permet de mettre à jour cette variable d'état (= changer l'état)
+    useEffect(() => { // utilisé pour récupérer les données du logement correspondant à l'ID extrait à l'aide de "useParams".
 
         axios.get('/data.json').then((resp) => {
-            const logementFound = resp.data.find((logement) => logement.id === id)
-            if (logementFound === undefined) {
-                setIsFound(false)
-            } else {
-                setData(resp.data)
+            const logementFound = resp.data.find((logement) => logement.id === id); // Recherche le logement correspondant à l'ID récupérée du data.json (axios)
+            if (logementFound === undefined) { // Si aucun logement correspondant n'est trouvé
+                setIsFound(false); // Met à jour l'état pour indiquer que le logement n'a pas été trouvé (=false)
+            } else { // Si un logement correspondant est trouvé
+                setData(resp.data); // Met à jour les données avec la réponse de la requête
             }
-        })  // ici, axios permet de récupérer les données du fichier "/data.json"
+        });
     }, []);
 
-    if (!isFound) {
-        return (<Error404 />)
+    if (!isFound) { // Si aucun logement n'a été trouvé
+        return (<Error404 />);
     }
+
 
     return (
         <div>
